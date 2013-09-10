@@ -1,0 +1,33 @@
+﻿@model SignInForm
+@{
+  ViewBag.Title = "Sign In";
+}
+
+<div class="row">
+  <div class="span4 offset4">
+    @using (Html.BeginForm())
+    {
+      @Html.AntiForgeryToken()
+      <fieldset>
+        <legend>Sign In</legend>
+        @Html.ValidationSummary("Please correct the following errors:")
+        @Html.LabelFor(m => m.Email)@Html.TextBoxFor(m => m.Email, new {@class = "span4"})
+        @Html.LabelFor(m => m.Password)@Html.PasswordFor(m => m.Password, new {@class = "span4"})
+        <div class="form-actions"><input class="btn btn-primary" type="submit" value="Sign In" /></div>
+      </fieldset>
+    }
+  </div>
+</div>
+
+@section Scripts
+{
+  <script>
+    require(['jquery'], function ($) {
+      $(function () {
+        setTimeout(function () {
+          $("#Email").focus();
+        }, 25);
+      });
+    });
+  </script>
+}

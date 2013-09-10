@@ -1,0 +1,62 @@
+﻿@model FormModel
+
+@{
+  ViewBag.Title = "Model Binding Example";
+}
+
+@using (Html.BeginForm("FormPostSimpleParameters", "ModelBinding"))
+{
+  <fieldset>
+    <legend>Simple Parameters</legend>
+    @Html.Label("Integer")
+    @Html.TextBox("Integer", 5)
+    
+    @Html.Label("String")
+    @Html.TextBox("String", "Some Text!")
+    
+    @Html.Label("Decimal")
+    @Html.TextBox("Decimal", "10.9817")
+    
+    <div class="row">
+      <div class="form-actions span4">
+        <input type="submit" class="btn btn-success" value="Submit Form" />
+      </div>
+    </div>
+  </fieldset>  
+}
+
+@using (Html.BeginForm("FormPostComplexParameter", "ModelBinding"))
+{
+  <fieldset>
+    <legend>Complex Parameter</legend>
+    @Html.ValidationSummary()
+
+    @Html.LabelFor(m => m.Integer)
+    @Html.TextBoxFor(m => m.Integer)
+    @Html.ValidationMessageFor(m => m.Integer)
+    
+    @Html.LabelFor(m => m.NullableInteger)
+    @Html.TextBoxFor(m => m.NullableInteger)
+    
+    @Html.LabelFor(m => m.String)
+    @Html.TextBoxFor(m => m.String)
+    
+    @Html.LabelFor(m => m.Date)
+    @Html.TextBoxFor(m => m.Date)
+    
+    @Html.LabelFor(m => m.Double)
+    @Html.TextBoxFor(m => m.Double)
+    
+    @Html.LabelFor(m => m.Decimal)
+    @Html.TextBoxFor(m => m.Decimal)
+    
+    @Html.LabelFor(m => m.SubForm.SubFormValue)
+    @Html.TextBoxFor(m => m.SubForm.SubFormValue)
+    
+    <div class="row">
+      <div class="form-actions span4">
+        <input type="submit" class="btn btn-success" value="Submit Form" />
+      </div>
+    </div>
+  </fieldset>  
+}

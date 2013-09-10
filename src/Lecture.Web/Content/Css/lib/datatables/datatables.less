@@ -1,0 +1,71 @@
+﻿table.dataTable
+{
+  margin-bottom: 6px !important;
+
+  td
+  {
+    padding-bottom: 3px;
+    padding-top: 3px;
+
+    &.dataTables_empty
+    {
+      text-align: center;
+    }
+  }
+
+  .sort(@image-file-name)
+  {
+    background-image: url("/Content/Css/lib/datatables/images/@{image-file-name}");
+    background-position: right center;
+    background-repeat: no-repeat;
+  }
+
+  .sorting
+  {
+    .sort("sort-both.png");
+  }
+
+  .sorting_asc
+  {
+    .sort("sort-asc.png");
+  }
+
+  .sorting_desc
+  {
+    .sort("sort-desc.png");
+  }
+
+  .sorting_asc_disabled
+  {
+    .sort("sort-asc-disabled.png");
+  }
+
+  .sorting_desc_disabled
+  {
+    .sort("sort-desc-disabled.png");
+  }
+}
+
+.dataTables_wrapper
+{
+  .dataTables_length select
+  {
+    width: 75px;
+  }
+
+  .dataTables_filter label
+  {
+    float: right;
+  }
+
+  .dataTables_info
+  {
+    padding-top: 8px;
+  }
+
+  .dataTables_paginate
+  {
+    float: right;
+    margin: 0;
+  }
+}

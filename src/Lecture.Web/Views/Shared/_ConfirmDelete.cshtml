@@ -1,0 +1,13 @@
+﻿<div class="modal hide">
+  <div class="modal-body">
+    <div class="alert alert-danger no-bottom-margin no-close">Are you sure that you want to delete this item? This action cannot be undone.</div>
+    <form id="deleteForm" action="@ViewBag.Url" method="POST" class="no-bottom-margin">
+      @Html.HttpMethodOverride(HttpVerbs.Delete)
+      @Html.AntiForgeryToken()
+    </form>
+  </div>
+  <div class="modal-footer">
+    <input type="button" class="btn" data-dismiss="modal" value="Cancel" />
+    <button type="button" class="btn btn-danger" data-action="submit"><i class="icon-trash"></i> Delete</button>
+  </div>
+</div>

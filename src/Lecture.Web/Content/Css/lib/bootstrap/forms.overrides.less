@@ -1,0 +1,30 @@
+﻿.form-actions
+{
+  text-align: right;
+}
+
+.validation-summary-valid
+{
+  display: none;
+}
+
+.validation-summary-errors
+{
+  .border-radius(4px);
+  background-color: @errorBackground;
+  border-color: @errorBorder;
+  color: @errorText;
+  margin-bottom: @baseLineHeight;
+  padding: 8px 14px;
+}
+
+.validation-summary-errors > span
+{
+  font-weight: bold;
+}
+
+.validation-summary-errors ul
+{
+  list-style: none;
+  margin: 5px 5px 0;
+}

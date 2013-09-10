@@ -1,0 +1,41 @@
+﻿@model UserForm
+  
+@using (Html.BeginForm("Save", "Users"))
+{
+  @Html.AntiForgeryToken()
+  @Html.ValidationSummary("Please correct the following errors:")
+  <fieldset>
+    <legend>@(Model.Id == null ? "Add User" : "Edit User")</legend>
+
+    @Html.HiddenFor(m => m.Id)
+
+    @if (Model.Id == null)
+    {
+      @Html.LabelFor(m => m.Email)
+      @Html.TextBoxFor(m => m.Email, new {@class = "span4"})
+    }
+    else
+    {
+      @Html.LabelFor(m => m.Email)
+      @Html.TextBoxFor(m => m.Email, new {@readonly = true, @class = "span4"})
+    }
+
+    @Html.LabelFor(m => m.Age)
+    @Html.TextBoxFor(m => m.Age)
+    
+    @Html.LabelFor(m => m.Password)
+    @Html.PasswordFor(m => m.Password, new {@class = "span4"})
+
+    @Html.LabelFor(m => m.ConfirmPassword)
+    @Html.PasswordFor(m => m.ConfirmPassword, new {@class = "span4"})
+
+    @Html.LabelFor(m => m.Roles)
+    @Html.ListBoxFor(m => m.Roles, Model.RoleSelectListItems, new {@class = "span4"})
+  </fieldset>
+  <div class="row">
+    <div class="form-actions span4">
+      @Html.ActionLink("Cancel", "Index", "Users", new {area = "Admin"}, new {@class = "btn"})
+      <button type="submit" class="btn btn-primary"><i class="icon-save"></i> Save</button>
+    </div>
+  </div>
+}
