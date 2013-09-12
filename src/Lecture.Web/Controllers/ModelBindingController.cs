@@ -34,9 +34,13 @@ namespace Lecture.Web.Controllers
 
     public ActionResult FormPostComplexParameter(FormModel model)
     {
-      if (model.Integer % 2 != 0) ModelState.AddModelError("Integer", "Integer must be even.");
+      if (model.Integer % 2 != 0)
+      {
+        ModelState.AddModelError("Steve", "Integer must be even.");
+      }
 
-      if (!ModelState.IsValid) return View("Index");
+      if (!ModelState.IsValid)
+        return View("Index", model);
 
       return View("Index", model);
     }

@@ -17,7 +17,7 @@ namespace Lecture.Web.Areas.Admin.Models
 
     public int? Id { get; set; }
 
-    [Required, StringLength(256), EmailAddress]
+    [Required, StringLength(256, MinimumLength = 5), EmailAddress]
     public string Email { get; set; }
 
     [Required, RegularExpression(@".*\d+.*", ErrorMessage = "Passwords must contain at least one number.")]
